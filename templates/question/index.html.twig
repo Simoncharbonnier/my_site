@@ -3,11 +3,29 @@
 {% block title %}Hello QuestionController!{% endblock %}
 
 {% block body %}
-    <h1>Hello {{ controller_name }}! ✅</h1>
+    {% if today_question %}
+        <h1>Voici la question du jour !</h1>
 
-    {% if question %}
         <h2>{{ question.content }}</h2>
+
+        {% if already_answered %}
+            <p>Vous avez déjà répondu à cette question !</p>
+        {% else %}
+            {{ form_start(form) }}
+                {{ form_row(form.content, {label: 'Votre réponse'}) }}
+                <button type="submit" class="btn btn-primary">Envoyer</button>
+            {{ form_end(form) }}
+        {% endif %}
     {% else %}
-        <p>Reviens demain !</p>
+        <h1>Voici la question du {{ day }} {{ month }} et vos réponses</h1>
+
+        <h2>{{ question.content }}</h2>
     {% endif %}
+
+    {% for answer in question.answers %}
+        <div class="d-flex justify-content-between align-items-center">
+            <p>{{ answer.content }}</p>
+            <p>{{ answer.year }}</p>
+        </div>
+    {% endfor %}
 {% endblock %}

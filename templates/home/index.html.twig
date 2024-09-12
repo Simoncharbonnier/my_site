@@ -4,5 +4,5 @@
 
 {% block body %}
     <h1>Hello {{ controller_name }}! ✅</h1>
-    <a href="{{ path('app_question') }}">Question of the day</a>
+    <a href="{{ path('app_question', {  'month': date()|date('m'), 'day': date()|date('d') }) }}">Question of the day</a>
 {% endblock %}
