@@ -14,7 +14,6 @@ use App\Service\DateFormatter;
 
 use App\Entity\Question;
 
-
 class QuestionController extends AbstractController
 {
     /**

@@ -1,3 +1,48 @@
 body {
-    background-color: skyblue;
+    background-color: rgb(24, 24, 24);
+    color: whitesmoke;
+}
+
+a {
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+.logo {
+
+}
+
+.logo:hover {
+    cursor: auto;
+    color: inherit;
+}
+
+/* MENU */
+
+.menu {
+    padding: 1.5rem 2rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid grey;
+    width: 100%;
+    column-gap: 2rem;
+}
+
+.menu .menu-links {
+    column-gap: 1rem;
+}
+
+.menu .link:hover {
+    cursor: pointer;
+    color: grey;
+}
+
+/* FOOTER */
+
+.footer {
+    padding: 1.5rem 2rem;
+    margin-top: 2rem;
+    border-top: 1px solid grey;
+    width: 100%;
+    column-gap: 2rem;
+    flex-direction: row-reverse;
 }

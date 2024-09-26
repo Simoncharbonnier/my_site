@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello QuestionController!{% endblock %}
+{% block title %}Question du {{ date }}{% endblock %}
 
 {% block body %}
     {% if today_question %}
@@ -12,7 +12,7 @@
             <p>Vous avez déjà répondu à cette question !</p>
         {% else %}
             {{ form_start(form) }}
-                {{ form_row(form.content, {label: 'Votre réponse'}) }}
+                {{ form_row(form.content, { label: 'Votre réponse' }) }}
                 <button type="submit" class="btn btn-primary">Envoyer</button>
             {{ form_end(form) }}
         {% endif %}
