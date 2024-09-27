@@ -8,6 +8,11 @@ a {
     color: whitesmoke;
 }
 
+a:hover {
+    cursor: pointer;
+    color: grey;
+}
+
 .logo {
 
 }
@@ -17,9 +22,9 @@ a {
     color: inherit;
 }
 
-/* MENU */
+/* HEADER */
 
-.menu {
+nav {
     padding: 1.5rem 2rem;
     margin-bottom: 2rem;
     border-bottom: 1px solid grey;
@@ -27,18 +32,14 @@ a {
     column-gap: 2rem;
 }
 
-.menu .menu-links {
+nav ul {
+    list-style: none;
     column-gap: 1rem;
-}
-
-.menu .link:hover {
-    cursor: pointer;
-    color: grey;
 }
 
 /* FOOTER */
 
-.footer {
+footer {
     padding: 1.5rem 2rem;
     margin-top: 2rem;
     border-top: 1px solid grey;
