@@ -11,6 +11,7 @@ use Doctrine\ORM\EntityManagerInterface;
 use App\Form\AnswerFormType;
 use App\Entity\Answer;
 use App\Service\DateFormatter;
+use App\Security\Voter\QuestionVoter;
 
 use App\Entity\Question;
 
@@ -36,12 +37,14 @@ class QuestionController extends AbstractController
     ): Response
     {
         $question = $questionRepository->findOneBy(['month' => $month, 'day' => $day]);
-        $date = $dateFormatter->format($month, $day);
 
-        if (!$question) {
-            $this->addFlash('success', 'Il n\'y a pas de question pour le '.$date.'.');
+        $date = $dateFormatter->format($month, $day);
+        if (!$date) {
+            $this->addFlash('error', 'Ce jour n\'existe pas (ou ai-je oublié une question ?) !');
             return $this->redirectToRoute('app_home');
         }
+
+        $this->denyAccessUnlessGranted(QuestionVoter::VIEW, $question);
 
         $alreadyAnswered = false;
         foreach ($question->getAnswers() as $answer) {
